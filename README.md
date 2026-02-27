@@ -44,11 +44,73 @@ Que ce soit pour le système secondaire (Lycée) ou le système universitaire (*
 
 ## 📂 Structure du Projet
 ```text
-/XaamSaMoyenne
-├── /admin             # Back-office (Gestion users, stats, config)
-├── /assets            # CSS, JS, Images, Font Awesome
-├── /includes          # Fonctions PHP, connexion BDD (PDO), header/footer
-├── /auth              # login.php, register.php, reset-password.php
-├── dashboard.php      # Page principale utilisateur
-├── index.php          # Page d'accueil / Vitrine
-└── README.md          # Documentation du projet
+/xaamsamoyenne/
+│
+├── 📁 admin/                          # Espace administrateur
+│   ├── 📁 includes/
+│   │   ├── admin_auth.php             # Authentification admin
+│   │   └── admin_header.php           # Header commun admin
+│   │
+│   ├── index.php                      # Dashboard admin
+│   ├── login.php                      # Connexion admin
+│   ├── users.php                      # Gestion des utilisateurs (CRUD)
+│   ├── series.php                     # Gestion des séries (CRUD)
+│   ├── matieres.php                   # Gestion des matières (CRUD)
+│   ├── coefficients.php               # Gestion des coefficients
+│   ├── stats.php                      # Statistiques globales
+│   └── settings.php                   # Paramètres du site
+│
+├── 📁 assets/                          # Ressources statiques
+│   ├── 📁 css/
+│   │   ├── style.css                   # Styles principaux
+│   │   └── style.min.css               # Version minifiée
+│   │
+│   ├── 📁 js/
+│   │   ├── main.js                     # JavaScript principal (animations, toasts)
+│   │   └── main.min.js                 # Version minifiée
+│   │
+│   └── 📁 images/                      # Images du site
+│       ├── logo.png
+│       └── favicon.ico
+│
+├── 📁 auth/                             # Authentification publique
+│   ├── login.php                        # Connexion utilisateur
+│   ├── register.php                     # Inscription
+│   ├── logout.php                       # Déconnexion
+│   └── reset-password.php                # Réinitialisation mot de passe
+│
+├── 📁 includes/                          # Fonctions communes
+│   ├── config.php                        # Configuration globale
+│   ├── database.php                      # Connexion PDO
+│   └── auth_functions.php                 # Fonctions d'authentification
+│
+├── 📁 lycee/                             # Espace Lycéens
+│   ├── 📁 includes/
+│   │   └── lyceen_functions.php          # Fonctions spécifiques lycée
+│   │
+│   ├── index.php                          # Dashboard lycéen
+│   ├── notes.php                          # Liste des notes
+│   ├── ajouter-note.php                   # Ajout de note avec coefficient
+│   ├── simulateur.php                      # Simulateur objectif examen
+│   ├── historique.php                      # Historique des notes
+│   └── profil.php                          # Profil lycéen
+│
+├── 📁 universite/                         # Espace Étudiants LMD
+│   ├── 📁 includes/
+│   │   └── etudiant_functions.php          # Fonctions spécifiques LMD
+│   │
+│   ├── index.php                            # Dashboard étudiant
+│   ├── ues.php                              # Gestion des UE (Création/Liste)
+│   ├── ue-details.php                        # Détail d'une UE
+│   ├── ecs.php                               # Gestion des EC par UE
+│   ├── ajouter-ec.php                         # Ajout d'EC (modal)
+│   ├── notes.php                              # Liste des notes LMD
+│   ├── ajouter-note.php                        # Ajout de note (EC)
+│   ├── simulateur.php                          # Simulateur LMD
+│   ├── historique.php                          # Historique semestriel
+│   └── profil.php                              # Profil étudiant
+│
+├── index.php                                # Page d'accueil publique
+├── dashboard.php                            # Redirection vers espace selon rôle
+├── .htaccess                                # Configuration Apache (cache, compression)
+└── README.md                                # Documentation du projet
